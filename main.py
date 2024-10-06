@@ -10,6 +10,7 @@ import os
 from NoTouchy import secret_key
 
 
+
 client = OpenAI(api_key=secret_key)
 
 def get_response(example):
