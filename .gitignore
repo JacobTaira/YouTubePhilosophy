@@ -1,8 +1,6 @@
 # Shhhhhh....
 NoTouchy.py
 
-__pycache__/
-
 test_PandasOutput.py
 
 test_Model.py
