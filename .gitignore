@@ -4,3 +4,6 @@ NoTouchy.py
 test_PandasOutput.py
 
 test_Model.py
+
+# Ignore the compiled Python bytecode directory
+__pycache__/
