@@ -7,7 +7,7 @@ import pandas as pd
 import sys
 import io
 import os
-from gitignore.NoTouchy import secret_key
+from NoTouchy import secret_key
 
 
 client = OpenAI(api_key=secret_key)
