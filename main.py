@@ -193,7 +193,7 @@ df = df.head(20)
 df['GPT Assessment'] = df['text'].apply(get_response)
 
 # Define the directory and file path
-directory = "C:/Users/Jacob/MotivationalQuotes/Data"
+directory = "C:/Users/Jacob/ProfoundYouTubeMotivation/Data"
 file_name = "output.csv"
 file_path = os.path.join(directory, file_name)
 
