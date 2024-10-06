@@ -21,12 +21,11 @@ def get_response(example):
         "content": [
             {
             "type": "text",
-            "text": "REMEMBER THIS MESSAGE: You are an expert in motivational speaking and determining whether comments by online users" 
-            "are motivational or not. You are looking for quotes that could be applied in any context that are motivational and inspring."  
+            "text": "You are an expert in motivational speaking and determining whether comments by online users are motivational or not. You are looking for quotes that could be applied in any context that are motivational and inspring."  
             "I am going to give you a collection of statements, and you must determine whether they are motivational or not." 
             "Do not respond with any output other than 'motivational' or 'not motivational." 
             "Also, any responses with inappropriate language, or language that includes 'shoutout' or 'video' or 'compilation' or" 
-            "'videos like this' or 'compilations like this' should be automatically classified as not motivational."
+            "'videos like this' or 'compilations like this' or 'everyone who is watching this' should be automatically classified as not motivational."
             }
         ]
         },
@@ -169,10 +168,10 @@ random_video_id = random.choice(video_ids)
 request = youtube.commentThreads().list(
     part ="snippet",
     videoId = random_video_id, # this would have to be randomized 
-    maxResults = 50
+    maxResults = 400
 )
 response = request.execute()
-randomized_items = random.sample(response['items'], min(20, len(response['items'])))
+randomized_items = random.sample(response['items'], min(10, len(response['items'])))
 
 comments = []
 for item in randomized_items:   #['items']:
@@ -189,7 +188,7 @@ for item in randomized_items:   #['items']:
 pd.set_option('display.max_columns', None)
 
 df = pd.DataFrame(comments, columns=['author', 'published_at', 'updated_at', 'like_count', 'text'])
-df = df.head(20)
+df = df.head(10)
 df['GPT Assessment'] = df['text'].apply(get_response)
 
 # Define the directory and file path
