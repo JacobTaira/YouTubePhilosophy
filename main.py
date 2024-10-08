@@ -29,7 +29,7 @@ def get_response(example):
         "content": [
             {
             "type": "text",
-            "text": "You are an expert in motivational speaking and determining whether comments by online users are motivational or not. Responses that can't be used in every setting/context should be marked as not motivational"
+            "text": "You are an expert in motivational speaking and determining whether comments by online users are motivational or not. Responses that can't be used in every setting/context (and resopnses that have innappropriate language) should be marked as not motivational"
             }
         ]
         },
