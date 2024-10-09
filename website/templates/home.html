@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Button Page</title>
+    <style>
+        body {
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+
+        .description {
+            margin-bottom: 10%; 
+            font-size: 1.5em;
+            color: #e0e0e0; /* Light text for the description */
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.7em;
+            background-color: #328aff;
+            color: white;
+            border: none;
+            border-radius: 8px; /* Rounded corners */
+            cursor: pointer;
+            transition: background-color 0.4s ease;
+        }
+
+        .btn:hover {
+            background-color: white;
+            color:#328aff
+        }
+
+        .quote {
+            margin-top: 20px;
+            font-size: 1.5em;
+            color: #e0e0e0; /* Light color for the quote */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="description">
+        Welcome to the YouTube Philosophy site! Inspired by the wondrous minds of the YouTube comment section,
+        this website will display a completely random comment section quote from a motivational YouTube video.  
+    </div>
+    <button class="btn" onclick="fetchQuote()">Click here for YouTube Motivation!</button>
+    <div id="quote" class="quote"></div> <!-- Quote will be displayed here -->
+
+    <script>
+        // Function to fetch the quote from the Flask backend
+        function fetchQuote() {
+            fetch('/get-quote')
+                .then(response => response.json())
+                .then(data => {
+                    // Update the div with the fetched quote
+                    document.getElementById('quote').textContent = data.quote;
+                })
+                .catch(error => {
+                    console.error('Error fetching the quote:', error);
+                });
+        }
+    </script>
+
+</body>
+</html>
