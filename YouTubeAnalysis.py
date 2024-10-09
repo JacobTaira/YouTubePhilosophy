@@ -15,7 +15,7 @@ def generate_quote():
     print("RUNNING YT ANALYSIS")
     def get_response(example):
         """
-        You are looking for quotes that could be applied in any context that are motivational and inspring."  
+        You are looking for quotes that are motivational and inspring."  
         "I am going to give you a collection of statements, and you must determine whether they are motivational or not." 
         "Do not respond with any output other than 'motivational' or 'not motivational." 
         "Also, any responses with inappropriate language, or language that includes 'shoutout' or 'video' or 'compilation' or" 
@@ -29,7 +29,8 @@ def generate_quote():
             "content": [
                 {
                 "type": "text",
-                "text": "You are an expert in motivational speaking and determining whether youtube comments by online users are motivational or not. Resopnses that have innappropriate language or reference the youtube video should be marked as not motivational"
+                "text": "You are an expert in motivational speaking and determining whether youtube comments by online users are motivational or not."
+                "Resopnses that have innappropriate language, talk about themselves, or reference the youtube video, likes, subscribing. should be marked as not motivational"
                 }
             ]
             },
@@ -167,7 +168,7 @@ def generate_quote():
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
 
-    video_ids = ["wpELD9wJqU8", "C3npAsGtY4U", "nvASM3ORLvY"]         #, "dQw4w9WgXcQ","eVTXPUF4Oz4","kxopViU98Xo","9bZkp7q19f0"
+    video_ids = ["wpELD9wJqU8", "C3npAsGtY4U", "nvASM3ORLvY", "GWVPcjMBuAg", "iqJpJLOyaoY", 'ODF7qHx9QcU']
     random_video_id = random.choice(video_ids)
     print ("random_video_id: " + random_video_id)
     request = youtube.commentThreads().list(
