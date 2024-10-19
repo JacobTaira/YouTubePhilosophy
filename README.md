@@ -1,1 +1,1 @@
-# MotivationalQuotes
+# YouTube Philosophy
