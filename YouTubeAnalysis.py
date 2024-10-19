@@ -8,6 +8,7 @@ import sys
 import io
 import os
 from NoTouchy import secret_key
+from NoTouchy import DEVELOPER_KEY
 
 client = OpenAI(api_key=secret_key)
 
@@ -163,7 +164,6 @@ def generate_quote():
 
     api_service_name = "youtube"
     api_version = "v3"
-    DEVELOPER_KEY = "AIzaSyBtD0uJ9nNGgzu2Mou-NxkhXC3CyCgLGH0"
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
