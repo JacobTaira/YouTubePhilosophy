@@ -162,6 +162,7 @@ def generate_quote():
     # set the encoding in your print statement by using the encoding parameter to deal with emojis in comments
     sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
+
     api_service_name = "youtube"
     api_version = "v3"
 
